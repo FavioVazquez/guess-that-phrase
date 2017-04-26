@@ -122,9 +122,9 @@
     };
     // we display this dialog when the round finishes
     GTP.dialog.termRoundDialog = function () {
-        message = "Congratulations " + scorebd.getPlayerName(GTP.gamestate.currentPlayer) + "! ";
+        message = "Felicidades " + scorebd.getPlayerName(GTP.gamestate.currentPlayer) + "! ";
         if ((GTP.gamestate.currentRound + 1 < GTP.ruleset.ROUNDS)) {
-            message += "The next round will begin shortly!";
+            message += "La siguiente ronda comenzará pronto";
         }
         GTP.dialog.showMessage(message, []);
     };
