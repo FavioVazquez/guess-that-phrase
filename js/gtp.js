@@ -1039,7 +1039,7 @@
                         "id": "spin",
                         "name": "spin",
                         "color": "red",
-                        "label": "Spin the Wheel"
+                        "label": "Rueda la ruleta"
                     }
             ).click({}, function () {
                 gsm.spin();
@@ -1049,7 +1049,7 @@
                         "id": "guess",
                         "name": "guess",
                         "color": "green",
-                        "label": "Guess a Vowel"
+                        "label": "Adivina una vocal"
                     }
             ).click({}, function () {
                 gsm.buyVowel();
@@ -1059,7 +1059,7 @@
                         "id": "solve",
                         "name": "solve",
                         "color": "yellow",
-                        "label": "Solve the Puzzle"
+                        "label": "Resuelve"
                     }
             ).click({}, function () {
                 gsm.solvePuzzle();
@@ -1070,7 +1070,7 @@
                         "id": "yes",
                         "name": "yes",
                         "color": "green",
-                        "label": "Yes"
+                        "label": "Si"
                     }
             ).click({}, function () {
                 gsm.guessCorrectly();
@@ -1092,7 +1092,7 @@
                         "id": "cancel",
                         "name": "cancel",
                         "color": "yellow",
-                        "label": "Cancel"
+                        "label": "Cancelar"
                     }
             ).click({}, function () {
                 gsm.cancelGuess();
