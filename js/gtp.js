@@ -105,13 +105,13 @@
         var winners = scorebd.getWinners();
         if (winners.length === 1) {
             var winner = scorebd.getPlayerName(winners[0] + 1);
-            var message = 'The game has ended. ' + winner + ' is the winner!';
+            var message = 'El juego ha terminado. ' + winner + ' es el ganador';
         } else if (winners.length === 2) {
             var winner1 = scorebd.getPlayerName(winners[0] + 1);
             var winner2 = scorebd.getPlayerName(winners[1] + 1);
-            var message = 'The game has ended. It seems there is a tie. ' + winner1 + ' and ' + winner2 + ' are both winners!';
+            var message = 'El juego ha terminado. Parece ser un empate. ' + winner1 + ' y ' + winner2 + ' son ganadores';
         } else {
-            var message = 'The game has ended. You\'re all winners!';
+            var message = 'El juego ha terminado. Todos han ganado';
         }
 
         $("button#okay").unbind("click");
@@ -130,27 +130,27 @@
     };
     // we display this dialog when the user chooses to solve the puzzle
     GTP.dialog.solveLockInDialog = function () {
-        message = 'Did ' + scorebd.getPlayerName(GTP.gamestate.currentPlayer) + ' guess the puzzle correctly?';
+        message = '¿Adivinó ' + scorebd.getPlayerName(GTP.gamestate.currentPlayer) + ' la frase?';
         GTP.dialog.showMessage(message, ["yes", "no", "cancel"]);
     };
     GTP.dialog.vowelSpinSolveDialog = function (message) {
-        message += 'Would you like to buy a vowel, spin the wheel, or solve the puzzle?';
+        message += '¿Quisieras comprar una vocal, darle a la rueda, o resolver?';
         GTP.dialog.showMessage(message, ["spin", "guess", "solve"]);
     };
     GTP.dialog.spinSolveDialog = function (message) {
-        message += 'Would you like to spin the wheel or solve the puzzle?';
+        message += '¿Quisieras darle a la rueda o resolver?';
         GTP.dialog.showMessage(message, ["spin", "solve"]);
     };
     GTP.dialog.vowelSolveDialog = function (message) {
-        message += 'Would you like to buy a vowel or solve the puzzle?';
+        message += '¿Quieres comprar una vocal o resolver?';
         GTP.dialog.showMessage(message, ["guess", "solve"]);
     };
     GTP.dialog.solveDialog = function (message) {
-        message += 'You must solve the puzzle. What is your guess?';
+        message += 'Debes resolver. ¿Qué adivinas?';
         GTP.dialog.showMessage(message, ["solve"]);
     };
     GTP.dialog.chooseConsonantDialog = function () {
-        message = 'Please choose a consonant.';
+        message = 'Por favor escoge una consonante.';
         $("#alphabetSplitter").show();                 // we have lots of letters, so we want to split them in half
         $(".consonant").show();                        // show consonants
         GTP.dialog.drawSlice();                        // draw slice spun
@@ -158,7 +158,7 @@
         GTP.dialog.showMessage(message, []);           // show message
     };
     GTP.dialog.chooseVowelDialog = function () {
-        message = 'Please choose a vowel.';
+        message = 'Por favor escoge una vocal.';
         $(".vowel").show();                            // show vowels
         GTP.dialog.showMessage(message, []);           // show message
     };
@@ -747,12 +747,12 @@
 
             // The message needs to be broken down for maintainability
             var content;
-            var explanation = '<p>Please input the phrases you like to use in this game. (If the "Submit Phrases" button isn\'t working, it\'s probably because the phrase you typed in is too long, has a word that is more than 12 characters, or just doesn\'t fit on the board.)</p>';
+            var explanation = '<p>Por favor ingrese las frases que le gustaría usar en este juego. (Si el botón "Enviar frases" no funciona, probablemente sea porque la frase que escribió es demasiado larga, tiene una palabra que tiene más de 12 caracteres o simplemente no encaja en el tablero).</p>';
             var form = phraseFormPopupPhraseFormHelper();
 
             content = explanation + form;
 
-            var html = '<div id="phrase_form_popup" title="Set your Phrases">' + content + '</div>';
+            var html = '<div id="phrase_form_popup" title="Pon tus frases">' + content + '</div>';
 
             // When doing $('#target').parsley() on a <form id="target"> element, 
             // it will bind the whole form and its various inputs and return you a ParsleyForm instance.
@@ -811,13 +811,13 @@
             var hintInput;
 
             for (var i = 1; i <= GTP.ruleset.ROUNDS; i++) {
-                phraseLabel = '<label for="phrase' + i + '">Phrase ' + i + ': </label>'
+                phraseLabel = '<label for="phrase' + i + '">Frase ' + i + ': </label>'
 
                 // the first phrase is required
                 if (i === 1) { var required = "required"; } else { var required = ""; }
                 phraseInput = '<input type="text" id="phrase' + i + '" name="phrase' + i + '" data-parsley-maxlength="50" data-parsley-fits pattern="' + GTP.tiles.PRHASE_REGEX + '" ' + required + '>';
 
-                hintLabel = '<label for="hint' + i + '">Hint ' + i + ': </label>'
+                hintLabel = '<label for="hint' + i + '">Pista ' + i + ': </label>'
                 hintInput = '<input type="text" id="hint' + i + '" name="hint' + i + '">';
 
                 formContent += phraseLabel + phraseInput + hintLabel + hintInput;
@@ -828,7 +828,7 @@
                 }
             }
 
-            var formClosing = '<input type="submit" value="Submit Phrases"/></form>';
+            var formClosing = '<input type="submit" value="Coloca las frases"/></form>';
             form = formOpening + formContent + formClosing
             return form;
         }
@@ -837,12 +837,12 @@
 
             // The message needs to be broken down for maintainability
             var content;
-            var explanation = '<p>Please input each player\'s name in the boxes below. Each name is limited to 12 characters maximum.</p>';
+            var explanation = '<p>Por favor ingrese el nombre de cada jugador en las casillas siguientes. Cada nombre está limitado a 12 caracteres como máximo.</p>';
             var form = playerFormPopupPlayerFormHelper();
 
             content = explanation + form;
 
-            var html = '<div id="player_name_form_popup" title="Set your Player Names">' + content + '</div>';
+            var html = '<div id="player_name_form_popup" title="Pon el nombre de los jugadores">' + content + '</div>';
 
             // When doing $('#target').parsley() on a <form id="target"> element, 
             // it will bind the whole form and its various inputs and return you a ParsleyForm instance.
@@ -887,7 +887,7 @@
             var input;
 
             for (var i = 1; i <= GTP.ruleset.PLAYERS; i++) {
-                label = '<label for="player' + i + '">Player ' + i + ': </label>'
+                label = '<label for="player' + i + '">Jugador ' + i + ': </label>'
                 input = '<input type="text" class="player_name_input" id="player' + i + '" name="player' + i + '" data-parsley-maxlength="12" data-parsley-fits pattern="' + GTP.tiles.PLAYER_REGEX + '">';
 
                 formContent += label + input;
@@ -898,7 +898,7 @@
                 }
             }
 
-            var formClosing = '<input type="submit" value="Submit Player Names"/></form>';
+            var formClosing = '<input type="submit" value="Pon el nombre de los jugadores"/></form>';
             form = formOpening + formContent + formClosing
             return form;
         }
@@ -931,11 +931,11 @@
 
             //  decide if you're looking at vowels or consonants
             if (letter_type === "vowel") {
-                var title = "No More Vowels";
-                var message = 'All the vowels in the phrase have been called out.';
+                var title = "No hay más vocales";
+                var message = 'Todas las vocales ya fueron compradas.';
             } else {
-                var title = "No More Consonants";
-                var message = 'All the consonants in the phrase have been called out.';
+                var title = "No hay más consonantes";
+                var message = 'Todas las consonantes ya fueron compradas.';
             }
 
             // set the title and message
@@ -1291,9 +1291,9 @@
                     var message = scorebd.getPlayerName(GTP.gamestate.currentPlayer);
                     // What should the message to the user be
                     if (from === "initTurn") {
-                        message += ", it is your turn. ";
+                        message += ", es tu turno. ";
                     } else {
-                        message += ", it is still your turn. ";
+                        message += ", es todavía tu turno. ";
                     }
 
                     /*If puzzle is unsolved, prompt (iff vowels available & player has >= $250, incude vowel option) */
